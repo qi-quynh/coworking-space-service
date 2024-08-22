@@ -38,7 +38,7 @@ docker build -t coworking .
 docker tag coworking:latest 310722232770.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
 docker push 310722232770.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
 
-### Clear app in EKS
+### 8. Clear app in EKS
 aws iam attach-role-policy `
     --role-name "eksctl-coworking-cluster-nodegroup-NodeInstanceRole-AKac5YZalJ9e" `
     --policy-arn "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
