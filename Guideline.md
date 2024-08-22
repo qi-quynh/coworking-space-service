@@ -25,12 +25,8 @@ psql --host=127.0.0.1 -U myuser -d mydatabase -p 5432 -f "2_seed_users.sql"
 psql --host=127.0.0.1 -U myuser -d mydatabase -p 5432 -f "3_seed_tokens.sql"
 
 ### 6. Build the Analytics Application Locally
+
 pip install -r requirements.txt
-$env:DB_USERNAME="myuser"
-$env:DB_PASSWORD="mypassword"
-$env:DB_HOST="127.0.0.1"
-$env:DB_PORT="5432"
-$env:DB_NAME="mydatabase"
 python app.py
 
 curl 127.0.0.1:5153/api/reports/daily_usage
@@ -42,7 +38,7 @@ docker build -t coworking .
 docker tag coworking:latest 310722232770.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
 docker push 310722232770.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
 
-### 8. Setup CloudWatch Logging
+### Clear app in EKS
 aws iam attach-role-policy `
     --role-name "eksctl-coworking-cluster-nodegroup-NodeInstanceRole-AKac5YZalJ9e" `
     --policy-arn "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
