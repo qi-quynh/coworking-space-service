@@ -1,5 +1,5 @@
 version: 0.2
- 
+
 phases:
   pre_build:
     commands:
@@ -19,7 +19,7 @@ phases:
       - echo Tagging the image as latest...
       - docker tag 310722232770.dkr.ecr.us-east-1.amazonaws.com/coworking:$CODEBUILD_BUILD_NUMBER 310722232770.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
       - docker push 310722232770.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
- 
+
 artifacts:
   files:
     - '**/*'
