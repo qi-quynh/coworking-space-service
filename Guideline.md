@@ -11,6 +11,8 @@ kubectl apply -f pvc.yaml
 kubectl apply -f pv.yaml
 kubectl apply -f postgresql-deployment.yaml
 kubectl apply -f postgresql-service.yaml
+kubectl apply -f coworking.yaml
+kubectl apply -f configmap.yaml
 
 ### 4. Set Up kubectl Port-forwarding
 kubectl port-forward service/postgresql-service 5432:5432 
